@@ -12,9 +12,33 @@ pub enum OverlayMsg {
     Quit,
 }
 
+/// Visual style for the floating overlay.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum OverlayStyle {
+    /// Dark vibrancy with electric blue left-edge stripe (default).
+    Bifrost,
+    /// Dark HUD with amber glowing dot indicator.
+    Stormforge,
+    /// Minimal black terminal aesthetic with blinking cursor.
+    Uru,
+}
+
+impl OverlayStyle {
+    /// Parse a style name (case-insensitive). Returns None for unknown names.
+    pub fn from_name(name: &str) -> Option<Self> {
+        match name.to_lowercase().as_str() {
+            "bifrost" => Some(Self::Bifrost),
+            "stormforge" => Some(Self::Stormforge),
+            "uru" => Some(Self::Uru),
+            _ => None,
+        }
+    }
+}
+
 /// State for the overlay, consumed by the platform-specific run loop.
 pub struct OverlayState {
     pub receiver: mpsc::Receiver<OverlayMsg>,
+    pub style: OverlayStyle,
 }
 
 #[cfg(target_os = "macos")]

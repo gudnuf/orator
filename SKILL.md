@@ -54,10 +54,21 @@ cargo run             # build and run
 4. Watch the floating overlay for live transcription
 5. Release Right Option -- text is injected at the cursor
 
-The overlay shows:
-- **Pulsing blue stripe**: listening, waiting for speech
-- **Solid blue stripe + text**: actively transcribing
-- Fades out when you release the key
+### Overlay styles
+
+Use `--style <name>` to pick a visual theme for the floating overlay:
+
+```bash
+orator --style bifrost      # default — dark vibrancy, pulsing blue stripe
+orator --style stormforge   # dark HUD, amber glowing dot, semibold text
+orator --style uru          # minimal black terminal, blinking cursor
+```
+
+| Style | Indicator | Font | Transitions |
+|-------|-----------|------|-------------|
+| **bifrost** | Blue left-edge stripe (pulses while listening) | SF Mono 14pt regular, `#E2E8F0` | Fade in/out |
+| **stormforge** | Amber dot (pulses while listening) | SF Pro Semibold 15pt, `#F8FAFC` | Fade in/out |
+| **uru** | Blinking `_` cursor, becomes `>` on transcript | SF Mono 14pt medium, white | Instant show/hide |
 
 ## Customizing hotwords
 

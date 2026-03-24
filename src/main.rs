@@ -5,13 +5,15 @@ mod overlay;
 mod recognizer;
 
 use anyhow::Result;
-use overlay::OverlayMsg;
+use overlay::{OverlayMsg, OverlayStyle};
 use std::io::{self, Write};
 use std::path::{Path, PathBuf};
 use std::sync::mpsc;
 use std::time::Duration;
 
 fn main() -> Result<()> {
+    let style = parse_style_arg();
+
     let (overlay_tx, overlay_rx) = mpsc::channel::<OverlayMsg>();
 
     // Spawn the voice processing loop on a background thread.
@@ -26,10 +28,39 @@ fn main() -> Result<()> {
     // Run the overlay on the main thread (blocks until quit).
     let state = overlay::OverlayState {
         receiver: overlay_rx,
+        style,
     };
     overlay::run_overlay(state);
 
     Ok(())
+}
+
+/// Parse `--style <name>` from command-line arguments.
+/// Defaults to Bifrost if not specified.
+fn parse_style_arg() -> OverlayStyle {
+    let args: Vec<String> = std::env::args().collect();
+    let mut i = 1;
+    while i < args.len() {
+        if args[i] == "--style" {
+            if i + 1 < args.len() {
+                match OverlayStyle::from_name(&args[i + 1]) {
+                    Some(s) => return s,
+                    None => {
+                        eprintln!(
+                            "Unknown style '{}'. Options: bifrost, stormforge, uru",
+                            args[i + 1]
+                        );
+                        std::process::exit(1);
+                    }
+                }
+            } else {
+                eprintln!("--style requires a value. Options: bifrost, stormforge, uru");
+                std::process::exit(1);
+            }
+        }
+        i += 1;
+    }
+    OverlayStyle::Bifrost
 }
 
 /// Resolve the base directory for runtime resources (models, hotwords).

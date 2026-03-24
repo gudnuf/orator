@@ -18,6 +18,22 @@ Requires macOS and [Nix](https://determinate.systems/nix-installer/). On first r
 2. Speak -- a floating overlay shows live transcription
 3. Release -- text is injected into the active window
 
+## Overlay Styles
+
+Choose a visual style for the floating overlay with `--style <name>`:
+
+```bash
+orator --style bifrost      # default
+orator --style stormforge
+orator --style uru
+```
+
+| Style | Description |
+|-------|-------------|
+| **bifrost** | Dark vibrancy with pulsing electric blue left-edge stripe (default) |
+| **stormforge** | Dark HUD with amber glowing dot indicator and semibold text |
+| **uru** | Minimal black terminal with blinking underscore cursor |
+
 ## Hotwords
 
 Edit `hotwords.txt` to boost recognition of technical terms. One entry per line (no comments):
