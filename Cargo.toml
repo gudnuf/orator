@@ -1,0 +1,41 @@
+[package]
+name = "orator"
+version = "0.2.0"
+edition = "2021"
+description = "Push-to-talk voice-to-text for macOS"
+license = "MIT"
+
+[dependencies]
+sherpa-onnx = "=1.12.31"
+cpal = "0.15"
+enigo = "0.5"
+rdev = "0.5"
+anyhow = "1"
+ctrlc = "3"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", features = ["NSRunLoop", "NSString", "NSDate"] }
+objc2-app-kit = { version = "0.3", features = [
+    "NSApplication",
+    "NSColor",
+    "NSEvent",
+    "NSFont",
+    "NSFontDescriptor",
+    "NSPanel",
+    "NSResponder",
+    "NSRunningApplication",
+    "NSScreen",
+    "NSText",
+    "NSTextField",
+    "NSTextFieldCell",
+    "NSView",
+    "NSVisualEffectView",
+    "NSWindow",
+    "NSCell",
+    "NSControl",
+    "NSGraphics",
+    "NSParagraphStyle",
+    "objc2-core-foundation",
+] }
+objc2-quartz-core = { version = "0.3", features = ["CALayer"] }

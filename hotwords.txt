@@ -1,0 +1,38 @@
+▁r u s t :1.5
+▁p y t h o n :1.5
+▁t y p e s c r i p t :2.0
+▁j a v a s c r i p t :2.0
+▁g o l a n g :2.5
+▁c a r g o :2.0
+▁n p m :3.0
+▁d o c k e r :2.0
+▁k u b e r n e t e s :2.5
+▁g i t :1.5
+▁g i t h u b :1.5
+▁n i x :2.5
+▁n i x p k g s :4.0
+▁n i x o s :3.5
+▁f l a k e :2.5
+▁d e v e n v :3.5
+▁d i r e n v :3.5
+▁a p i :2.0
+▁j s o n :2.5
+▁y a m l :3.0
+▁t o m l :3.0
+▁s q l :2.0
+▁h t t p :1.5
+▁h t t p s :1.5
+▁w e b s o c k e t :2.5
+▁g r p c :3.5
+▁g r a p h q l :3.0
+▁r e a c t :1.5
+▁n e x t j s :3.5
+▁t o k i o :3.0
+▁a x u m :3.5
+▁s e r d e :3.5
+▁o n n x :4.0
+▁t r a n s f o r m e r :2.0
+▁w h i s p e r :2.0
+▁l l m :3.0
+▁c l a u d e :2.0
+▁a n t h r o p i c :2.5
