@@ -23,9 +23,9 @@ Requires macOS and [Nix](https://determinate.systems/nix-installer/). On first r
 Choose a visual style for the floating overlay with `--style <name>`:
 
 ```bash
-orator --style bifrost      # default
-orator --style stormforge
-orator --style uru
+nix run github:gudnuf/orator -- --style bifrost      # default
+nix run github:gudnuf/orator -- --style stormforge
+nix run github:gudnuf/orator -- --style uru
 ```
 
 | Style | Description |
@@ -48,7 +48,7 @@ Format: BPE tokens (characters separated by spaces, prefixed with `▁`) then `:
 Override the default hotwords file:
 
 ```bash
-ORATOR_DATA_DIR=~/my-config nix run github:gudnuf/orator
+ORATOR_DATA_DIR=~/my-config nix run github:gudnuf/orator -- --style bifrost
 ```
 
 ## Development
